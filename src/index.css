@@ -19,3 +19,11 @@ body {
   height: 300px;
   width: 300px;
 }
+.menuBar{
+  width: 250px;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  color: #FFFFCC;
+  background-color:#000080;
+}

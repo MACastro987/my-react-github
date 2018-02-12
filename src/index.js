@@ -6,10 +6,12 @@ import registerServiceWorker from './registerServiceWorker';
 
 class FrontDoor extends React.Component{
 
-   
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {
+            value: '',
+            outside: true
+        };
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,19 +27,23 @@ class FrontDoor extends React.Component{
         
         console.log(this.state.value);
         event.preventDefault();
-
         {/*axios.get(dummyURL).then(function(response){
             console.log("this is working");
             console.log(response.data);
-
         });*/}
 
-
-
-
+        this.setState({ outside: false});
       }
-    
-      render() {
+
+      renderIn(){
+          return(
+              <div>
+              <InsideHouse />
+              </div>
+          );
+      }
+
+      renderOut(){
         return (
             <div className="centerStuff">
                 <form onSubmit={this.handleSubmit}>
@@ -52,9 +58,41 @@ class FrontDoor extends React.Component{
             </div>
         );
       }
+    
+      render() {
+        if (this.state.outside) {
+            return this.renderOut();
+          } else {
+            return this.renderIn();
+          }
+      }
 }
 
+class Hallway extends React.Component{
+    render(){
+        return (
+            <div>
+                <div className="menuBar">
+                <form>
+                <div><label><input type="radio" name="groupName" value="Option1" checked={true}/><p1>Option Something</p1></label></div>
+                <div><label><input type="radio" name="groupName" value="Option2" /><p1>Option Something2</p1></label></div>
+                <div><label><input type="radio" name="groupName" value="Option3" /><p1>Option Something3</p1></label></div>
+                </form>
+                </div>
+            </div>
+        );
+    }
+}
 
+class InsideHouse extends React.Component{
+    render(){
+        return (
+            <div>
+                <Hallway />
+            </div>
+        );
+    }
+}
 
 ReactDOM.render(<FrontDoor />, document.getElementById('root'));
 registerServiceWorker();
