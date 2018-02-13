@@ -50,9 +50,9 @@ class FrontDoor extends React.Component{
         return (
             <div className="centerStuff">
                 <form onSubmit={this.handleSubmit}>
-                    <label>
-                    Address:
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    <label className="mainLabel" >
+                    Address
+                    <input type="text" value={this.state.value} onChange={this.handleChange} className="mainInput"  />
                     </label>
                     <div>
                     <input type="submit" value="Submit" className="redButton" />
