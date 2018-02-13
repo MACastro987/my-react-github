@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import axios from 'axios';
 
 class FrontDoor extends React.Component{
 
@@ -24,13 +25,15 @@ class FrontDoor extends React.Component{
       handleSubmit(event) {
         var testURL = "http://dev-api.codeforkc.org//address-attributes/V0/1407%20Grand%20blvd?city=Kansas%20City&state=mo";
         var dummyURL = "https://jsonplaceholder.typicode.com/users";
+        var newURL = "http://dev-api.codeforkc.org//address-attributes/V0/2516%20Holmes%20st?city=Kansas%20City&state=mo";
         
         console.log(this.state.value);
         event.preventDefault();
-        {/*axios.get(dummyURL).then(function(response){
+        axios.get(newURL).then(function(response){
+            var myResponse = response.data;
             console.log("this is working");
-            console.log(response.data);
-        });*/}
+            console.log(myResponse.data.city_id);
+        });
 
         this.setState({ outside: false});
       }
