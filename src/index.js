@@ -132,11 +132,11 @@ class InsideHouse extends React.Component{
     }
 
     render(){
-        if (this.state.doorway == "rad1"){
+        if (this.state.doorway === "rad1"){
             return this.renderRad1();
-          } else if (this.state.doorway =="rad2"){
+          } else if (this.state.doorway ==="rad2"){
             return this.renderRad2();
-          } else if (this.state.doorway == "rad3"){
+          } else if (this.state.doorway === "rad3"){
             return this.renderRad3();
           }
     }
