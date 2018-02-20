@@ -88,12 +88,57 @@ class Hallway extends React.Component{
 }
 
 class InsideHouse extends React.Component{
+    constructor(props){
+        super(props);
+        this.state= {
+            doorway: "rad1",
+        };
+    }
+    changeStuff(changeEvent){
+        this.setState({doorway: changeEvent.target.value});
+    }
+
+    renderRad1(){
+        <div>
+        <div className="menuBar">
+            <label><input type="radio" name="myRadio" value="rad1" onChange={this.changeStuff} checked={this.state.doorway === 'rad1'} /><p1>Radio1</p1></label>
+            <label><input type="radio" name="myRadio" value="rad2" onChange={this.changeStuff} checked={this.state.doorway === 'rad2'}/><p1>Radio2</p1></label>
+            <label><input type="radio" name="myRadio" value="rad3" onChange={this.changeStuff} checked={this.state.doorway === 'rad3'}/><p1>Radio3</p1></label>
+        </div>
+        <h1>Here is the First Radio Button</h1>
+        </div>
+    }
+
+    renderRad2(){
+<div>
+        <div className="menuBar">
+            <label><input type="radio" name="myRadio" value="rad1" onChange={this.changeStuff} checked={this.state.doorway === 'rad1'} /><p1>Radio1</p1></label>
+            <label><input type="radio" name="myRadio" value="rad2" onChange={this.changeStuff} checked={this.state.doorway === 'rad2'}/><p1>Radio2</p1></label>
+            <label><input type="radio" name="myRadio" value="rad3" onChange={this.changeStuff} checked={this.state.doorway === 'rad3'}/><p1>Radio3</p1></label>
+        </div>
+        <h1>Here is the Second Radio Button</h1>
+        </div>
+    }
+
+    renderRad3(){
+<div>
+        <div className="menuBar">
+            <label><input type="radio" name="myRadio" value="rad1" onChange={this.changeStuff} checked={this.state.doorway === 'rad1'} /><p1>Radio1</p1></label>
+            <label><input type="radio" name="myRadio" value="rad2" onChange={this.changeStuff} checked={this.state.doorway === 'rad2'}/><p1>Radio2</p1></label>
+            <label><input type="radio" name="myRadio" value="rad3" onChange={this.changeStuff} checked={this.state.doorway === 'rad3'}/><p1>Radio3</p1></label>
+        </div>
+        <h1>Here is the Third Radio Button</h1>
+        </div>
+    }
+
     render(){
-        return (
-            <div>
-                <Hallway />
-            </div>
-        );
+        if (this.state.doorway == "rad1"){
+            return this.renderRad1();
+          } else if (this.state.doorway =="rad2"){
+            return this.renderRad2();
+          } else if (this.state.doorway == "rad3"){
+            return this.renderRad3();
+          }
     }
 }
 
